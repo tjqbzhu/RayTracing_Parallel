@@ -47,6 +47,6 @@ Color diffuseColor (const Vector3D& direction, const Light *light,
 
 
 Color trace (const Ray& ray, std::set<IShape*>& sceneShapes,
-						 std::set<Light*>& sceneLights, int depth);
+						 std::set<Light*>& sceneLights, int depth, double reflect_coef=1.0);
 
 #endif /* UTIL_H_ */

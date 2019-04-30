@@ -1,5 +1,6 @@
 #include "util.h"
 #define MAX_DEPTH 7
+#define REFL_THRESHOLD 0.01
 
 void writePPMFile(Image *image, const char *filename, float width, float height)
 {
@@ -128,7 +129,7 @@ Color diffuseColor (const Vector3D& direction, const Light *light,
 }
 
 Color trace (const Ray& ray, std::set<IShape*>& sceneShapes,
-						 std::set<Light*>& sceneLights, int depth)
+						 std::set<Light*>& sceneLights, int depth, double reflect_coef)
 {
 	Color pixelColor (0.3);
 
@@ -179,7 +180,7 @@ Color trace (const Ray& ray, std::set<IShape*>& sceneShapes,
 		}
 
 		//Calculate the reflected color
-		if ((shape->reflection () > 0)
+		if (shape->reflection () > 0 && shape->reflection() * reflect_coef >= REFL_THRESHOLD
 				&& depth <= MAX_DEPTH)
 		{
 			Vector3D reflDir = ray.direction ()
@@ -188,7 +189,7 @@ Color trace (const Ray& ray, std::set<IShape*>& sceneShapes,
 
 			Ray reflectionRay (intersectionPoint + normal * bias, reflDir);
 			Color reflectionColor = trace (reflectionRay, sceneShapes, sceneLights,
-			                               depth + 1);
+			                               depth + 1, shape->reflection() * reflect_coef);
 
 			pixelColor += reflectionColor * shape->reflection ();
 		}
