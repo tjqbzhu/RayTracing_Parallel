@@ -60,7 +60,7 @@ int main (int argc, char** argv)
 	printf ("Rendering scene:\n");
 	printf ("Width: %d \nHeight: %d\nFov: %.2f\n", width, height, fov);
 
-  gettimeofday (&t_start, NULL);
+	gettimeofday (&t_start, NULL);
 
 #ifdef _OPENMP
 #pragma omp parallel for
@@ -71,7 +71,7 @@ int main (int argc, char** argv)
 
 		for (int x = 0; x < width; x++)
 		{
-      Color color;
+			Color color;
 			float yu = (1 - 2 * ((y + 0.5) * 1 / height)) * tanFov;
 			float xu = (2 * ((x + 0.5) * 1 / float (width)) - 1) * tanFov
 					* aspectratio;
@@ -79,33 +79,29 @@ int main (int argc, char** argv)
 
 			color = trace (ray, sceneShapes, sceneLights, 0);
       
-      image[y * width + x] = color;
+			image[y * width + x] = color;
 		}
 	}
-  gettimeofday (&t_end, NULL);
-  elapsed_time = (t_end.tv_sec - t_start.tv_sec) * 1000.0;
-  elapsed_time += (t_end.tv_usec - t_start.tv_usec) / 1000.0;
+  	gettimeofday (&t_end, NULL);
+  	elapsed_time = (t_end.tv_sec - t_start.tv_sec) * 1000.0;
+  	elapsed_time += (t_end.tv_usec - t_start.tv_usec) / 1000.0;
 
-  printf ("\r100.00%%");
+  	printf ("\r100.00%%");
 	printf ("\nFinished!\n");
-  printf ("Rendering time: %.3f s\n", elapsed_time/1000.0);
+  	printf ("Rendering time: %.3f s\n", elapsed_time/1000.0);
 
-  writePPMFile (image, filename.c_str (), width, height);
+  	writePPMFile (image, filename.c_str (), width, height);
 
 	std::set<IShape*>::iterator it = sceneShapes.begin ();
 	while (it != sceneShapes.end ())
 	{
-		free (*it);
-		sceneShapes.erase (it);
-		it++;
+		it = sceneShapes.erase (it);
 	}
 
 	std::set<Light*>::iterator it2 = sceneLights.begin ();
 	while (it2 != sceneLights.end ())
 	{
-		free (*it2);
-		sceneLights.erase (it2);
-		it2++;
+		it2 = sceneLights.erase (it2);
 	}
 
 	delete image;

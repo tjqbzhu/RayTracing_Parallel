@@ -56,8 +56,8 @@ protected:
 	Color _color;
 
 	float _reflection;
-	float _diffuseCoefficient;
 	float _specularCoefficient;
+	float _diffuseCoefficient;
 };
 
 #endif /* ISHAPE_H_ */
