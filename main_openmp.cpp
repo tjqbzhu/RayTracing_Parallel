@@ -117,5 +117,6 @@ int main (int argc, char** argv)
 	}
 
 	delete image;
+	delete [] itemBuffer;
 	return 0;
 }
