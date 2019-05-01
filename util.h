@@ -27,7 +27,8 @@ static const float bias = 1e-4;
 
 void writePPMFile(Image *image, const char *filename, float width, float height);
 
-void initScene(std::set<IShape *>&sceneShapes, std::set<Light *>&sceneLights);
+void initScene(std::set<IShape *>&sceneShapes, std::set<Light *>&sceneLights,
+ Point origin, int width, int height, float fov, std::set<IShape *> *itemBuffer);
 
 IShape* calculateIntersect (const Ray &ray, std::set<IShape*> &sceneShapes,
 														float *t, Vector3D &shapeNormal, Color &pixelColor);
@@ -47,6 +48,7 @@ Color diffuseColor (const Vector3D& direction, const Light *light,
 
 
 Color trace (const Ray& ray, std::set<IShape*>& sceneShapes,
-						 std::set<Light*>& sceneLights, int depth, double reflect_coef=1.0);
+						 std::set<Light*>& sceneLights, int depth, int *rtn_depth,
+                        std::set<IShape *>& itemBuffer,double reflect_coef=1.0);
 
 #endif /* UTIL_H_ */

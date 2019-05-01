@@ -9,6 +9,7 @@
 #ifndef VECTOR3D_H_
 #define VECTOR3D_H_
 
+#include <iostream>
 #include <cmath>
 
 class Vector3D
@@ -162,6 +163,10 @@ inline Vector3D operator + (const Vector3D& v1, const Vector3D& v2)
 inline Vector3D operator - (const Vector3D& v1, const Vector3D& v2)
 {
 	return Vector3D (v1.x () - v2.x (), v1.y () - v2.y (), v1.z () - v2.z ());
+}
+
+inline std::ostream & operator<<(std::ostream &os, const Vector3D& v) { 
+    return os << "("<<v.x()<<","<<v.y()<<","<<v.z()<<")";
 }
 
 typedef Vector3D Point;

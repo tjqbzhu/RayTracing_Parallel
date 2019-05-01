@@ -47,7 +47,7 @@ endif
 
 .phony: all clean distclean
 
-all: bootstrap $(binDir)/$(utillib) $(binDir)/$(app) $(binDir)/$(app)_openmp # $(binDir)/$(app)_cuda 
+all: bootstrap $(binDir)/$(utillib) $(binDir)/$(app)_openmp #$(binDir)/$(app) $(binDir)/$(app)_cuda 
 
 bootstrap:
 	mkdir -p $(binDir)

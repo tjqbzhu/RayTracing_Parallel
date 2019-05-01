@@ -59,6 +59,13 @@ public:
 		return true;
 	}
 
+	virtual void generateItemBuffer(std::set<IShape*> *itemBuffer, Point origin, int width, int height, float fov) {
+		for (int i = 0; i < width * height; i++) {
+			itemBuffer[i].insert(this);
+		}
+		return;
+	}
+
 protected:
 	Vector3D _normal;
 	bool _flag;

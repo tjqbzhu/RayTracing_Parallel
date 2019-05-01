@@ -1,6 +1,9 @@
 #include "util.h"
-#define MAX_DEPTH 7
-#define REFL_THRESHOLD 0.01
+#include <iostream>
+#include <vector>
+#define MAX_DEPTH 10
+#define REFL_THRESHOLD 0.02
+#define ITEM_BUFFER false
 
 void writePPMFile(Image *image, const char *filename, float width, float height)
 {
@@ -17,10 +20,17 @@ void writePPMFile(Image *image, const char *filename, float width, float height)
 	ofs.close();
 }
 
-void initScene(std::set<IShape *>&sceneShapes, std::set<Light *>&sceneLights)
+void initScene(std::set<IShape *>&sceneShapes, std::set<Light *>&sceneLights,
+				 Point origin, int width, int height, float fov, std::set<IShape *> *itemBuffer)
 {
 	Plane *mirror = new Plane (Point(0.0f, 0.0, -15.0f), Vector3D (0.0f, 0.0f, 1.0f), 
-      Color(0.2f, 0.2f, 0.2f), 1.0f, 0.2f, 0.2f, false);
+      Color(0.2f, 0.2f, 0.2f), 0.5f, 0.2f, 0.2f, false);
+
+	Plane *mirror2 = new Plane (Point(0.0f, 0.0, 25.0f), Vector3D (0.0f, 0.0f, -1.0f), 
+      Color(0.2f, 0.2f, 0.2f), 0.5f, 0.2f, 0.2f, false);
+
+	// Plane *mirror3 = new Plane (Point(15.0f, 0.0, -15.0f), Vector3D (-1.0f, 0.0f, 1.0f), 
+ //      Color(0.2f, 0.2f, 0.2f), 1.0f, 0.2f, 0.2f, false);
 
 	Plane *floor = new Plane(Point(0.0f, -2.5f, 0.0f), Vector3D(0.0f, 1.0f, 0.0f),
 			Color(1.0f, 1.0f, 1.0f), 0.5f, 0.3f, 0.3f);
@@ -29,30 +39,32 @@ void initScene(std::set<IShape *>&sceneShapes, std::set<Light *>&sceneLights)
 			0.5f, 0.5f, 1.0f, 0.6f);
 
 	Sphere *sphere1 = new Sphere(Point(3.0f, 0.0f, 0.0f), Color(1.0, 0.1, 0.1),
-			1.5f, 0.8f, 1.0f, 0.2f);
+			1.5f, 0.5f, 1.0f, 0.2f);
 	Sphere *sphere2 = new Sphere(Point(-3.0f, 0.0f, 0.0f), Color(0.1, 1.0, 0.1),
 			1.5f, 0.5f, 1.0f, 0.7f);
 	Sphere *sphere3 = new Sphere(Point(0.0f, 0.0f, -4.0f), Color(0.5, 0.5, 0.5),
 			1.5f, 0.5f, 1.0f, 0.7f);
 
 	Sphere *sphere4 = new Sphere(Point(10.0f, 5.0f, -4.0f), Color(1.0, 0.3, 0.8),
-				1.5f, 0.8f, 1.0f, 0.4f);
+				1.5f, 0.5f, 1.0f, 0.4f);
 
 	Sphere *sphere5 = new Sphere(Point(8.0f, 0.0f, 4.0f), Color(0.5, 0.5, 1.0),
 				1.5f, 0.3f, 1.0f, 0.7f);
 
 	Sphere *sphere6 = new Sphere(Point(5.0f, 10.0f, 0.0f), Color(0.3, 0.6, 0.1),
-				1.5f, 1.0f, 1.0f, 0.7f);
+				1.5f, 0.5f, 1.0f, 0.7f);
 
 	Sphere *sphere7 = new Sphere(Point(-3.0f, 4.0f, -2.0f), Color(0.1, 0.6, 0.7),
 				1.5f, 0.2f, 1.0f, 0.7f);
 
 	Sphere *sphere8 = new Sphere(Point(-4.0f, 7.0f, 3.0f), Color(0.5, 0.1, 0.7),
-				1.5f, 0.8f, 1.0f, 0.7f);
+				1.5f, 0.5f, 1.0f, 0.7f);
 
 
 	sceneShapes.insert(floor);
   sceneShapes.insert(mirror);
+  sceneShapes.insert(mirror2);
+  // sceneShapes.insert(mirror3);
 
   sceneShapes.insert(sphere0);
 	sceneShapes.insert(sphere1);
@@ -63,6 +75,11 @@ void initScene(std::set<IShape *>&sceneShapes, std::set<Light *>&sceneLights)
 	sceneShapes.insert(sphere6);
 	sceneShapes.insert(sphere7);
 	sceneShapes.insert(sphere8);
+
+	if (ITEM_BUFFER)
+		for (auto it = sceneShapes.begin(); it != sceneShapes.end(); it++) {
+			(*it)->generateItemBuffer(itemBuffer, origin, width, height, fov);
+		}
 
 	Light *frontLight = new Light(Point(0.0f, 13.0f, 10.0f),
 				Color(1.0f, 1.0f, 1.0f), 1.0f);
@@ -129,14 +146,20 @@ Color diffuseColor (const Vector3D& direction, const Light *light,
 }
 
 Color trace (const Ray& ray, std::set<IShape*>& sceneShapes,
-						 std::set<Light*>& sceneLights, int depth, double reflect_coef)
+						 std::set<Light*>& sceneLights, int depth,
+						 int *rtn_depth, std::set<IShape *>& itemBuffer,  double reflect_coef)
 {
 	Color pixelColor (0.3);
 
 	float near;
 	Color color;
 	Vector3D normal;
-	IShape *shape = calculateIntersect (ray, sceneShapes, &near, normal, color);
+	IShape *shape;
+	if (depth == 0 && ITEM_BUFFER) {
+		shape = calculateIntersect (ray, itemBuffer, &near, normal, color);
+	} else {
+		shape = calculateIntersect (ray, sceneShapes, &near, normal, color);
+	}
 	if (shape)
 	{
 		Point intersectionPoint = ray.calculate (near);
@@ -189,12 +212,14 @@ Color trace (const Ray& ray, std::set<IShape*>& sceneShapes,
 
 			Ray reflectionRay (intersectionPoint + normal * bias, reflDir);
 			Color reflectionColor = trace (reflectionRay, sceneShapes, sceneLights,
-			                               depth + 1, shape->reflection() * reflect_coef);
+			                               depth + 1, rtn_depth, itemBuffer, shape->reflection() * reflect_coef);
 
 			pixelColor += reflectionColor * shape->reflection ();
 		}
 	}
 
 	pixelColor.clamp ();
+	*rtn_depth = depth > *rtn_depth ? depth : *rtn_depth;
+	// std::cout<<depth<<std::endl;
 	return pixelColor;
 }

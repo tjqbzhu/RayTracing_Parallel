@@ -18,7 +18,7 @@
 #include <iostream>
 #include <sys/time.h>
 
-#define MAX_DEPTH 8
+// #define MAX_DEPTH 8
 
 extern const float bias;
 
@@ -72,7 +72,7 @@ int main (int argc, char** argv)
 					* aspectratio;
 			Ray ray (origin, Vector3D (xu, yu, -1));
 
-			color = trace (ray, sceneShapes, sceneLights, 0);
+			color = trace (ray, sceneShapes, sceneLights, 0, 0);
       
       image[y * width + x] = color;
 		}

@@ -12,6 +12,7 @@
 #include "Vector3D.h"
 #include "Ray.h"
 #include "Color.h"
+#include <set>
 
 class IShape
 {
@@ -50,6 +51,8 @@ public:
 	}
 
 	virtual bool intersect(const Ray &, float *, Vector3D&, Color &) = 0;
+
+	virtual void generateItemBuffer(std::set<IShape*> *itemBuffer, Point origin, int width, int height, float fov) = 0;
 
 protected:
 	Point _position;
