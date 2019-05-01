@@ -1,0 +1,95 @@
+MAX_DEPTH 10 REFL_THRESHOLD 0.02 ITEM_BUFFER true
+
+Rendering scene:
+Width: 800 
+Height: 600
+Fov: 60.00
+Finished!
+Rendering time: 3.090 s
+Average depth: 4.753263
+Rendering scene:
+Width: 1440 
+Height: 900
+Fov: 60.00
+Finished!
+Rendering time: 8.340 s
+Average depth: 4.794477
+Rendering scene:
+Width: 1920 
+Height: 1080
+Fov: 60.00
+Finished!
+Rendering time: 13.202 s
+Average depth: 4.789284
+
+MAX_DEPTH 10 REFL_THRESHOLD 0.02 ITEM_BUFFER false
+
+Rendering scene:
+Width: 800 
+Height: 600
+Fov: 60.00
+Finished!
+Rendering time: 2.491 s
+Average depth: 4.753262
+Rendering scene:
+Width: 1440 
+Height: 900
+Fov: 60.00
+Finished!
+Rendering time: 8.290 s
+Average depth: 4.794477
+Rendering scene:
+Width: 1920 
+Height: 1080
+Fov: 60.00
+Finished!
+Rendering time: 14.037 s
+Average depth: 4.789284
+
+MAX_DEPTH 10 REFL_THRESHOLD 0.1 ITEM_BUFFER false
+
+Rendering scene:
+Width: 800 
+Height: 600
+Fov: 60.00
+Finished!
+Rendering time: 2.225 s
+Average depth: 2.912365
+Rendering scene:
+Width: 1440 
+Height: 900
+Fov: 60.00
+Finished!
+Rendering time: 5.958 s
+Average depth: 2.926971
+Rendering scene:
+Width: 1920 
+Height: 1080
+Fov: 60.00
+Finished!
+Rendering time: 9.471 s
+Average depth: 2.923240
+
+MAX_DEPTH 10 REFL_THRESHOLD 0.1 ITEM_BUFFER false
+
+Rendering scene:
+Width: 800 
+Height: 600
+Fov: 60.00
+Finished!
+Rendering time: 6.441 s
+Average depth: 10.172679
+Rendering scene:
+Width: 1440 
+Height: 900
+Fov: 60.00
+Finished!
+Rendering time: 16.110 s
+Average depth: 10.311838
+Rendering scene:
+Width: 1920 
+Height: 1080
+Fov: 60.00
+Finished!
+Rendering time: 27.015 s
+Average depth: 10.310229

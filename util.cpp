@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #define MAX_DEPTH 10
-#define REFL_THRESHOLD 0.02
+#define REFL_THRESHOLD 0
 #define ITEM_BUFFER false
 
 void writePPMFile(Image *image, const char *filename, float width, float height)
