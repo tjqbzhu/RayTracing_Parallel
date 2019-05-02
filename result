@@ -70,7 +70,7 @@ Finished!
 Rendering time: 9.471 s
 Average depth: 2.923240
 
-MAX_DEPTH 10 REFL_THRESHOLD 0.1 ITEM_BUFFER false
+MAX_DEPTH 10 REFL_THRESHOLD 0 ITEM_BUFFER false
 
 Rendering scene:
 Width: 800 
