@@ -1,0 +1,55 @@
+
+
+ Performance counter stats for './RayTracing_openmp 800 600':
+
+      15873.844105      task-clock (msec)         #    7.372 CPUs utilized          
+            32,384      context-switches          #    0.002 M/sec                  
+                38      cpu-migrations            #    0.002 K/sec                  
+             1,524      page-faults               #    0.096 K/sec                  
+    58,286,113,539      cycles                    #    3.672 GHz                      (50.35%)
+    65,224,309,618      instructions              #    1.12  insn per cycle           (62.82%)
+    10,265,841,899      branches                  #  646.714 M/sec                    (62.46%)
+       117,420,089      branch-misses             #    1.14% of all branches          (61.98%)
+    26,598,351,548      L1-dcache-loads           # 1675.609 M/sec                    (62.13%)
+        21,848,044      L1-dcache-load-misses     #    0.08% of all L1-dcache hits    (62.68%)
+         7,160,471      LLC-loads                 #    0.451 M/sec                    (50.04%)
+            41,548      LLC-load-misses           #    0.58% of all LL-cache hits     (50.36%)
+
+       2.153286522 seconds time elapsed
+
+
+ Performance counter stats for './RayTracing_openmp 800 600':
+
+      15707.848533      task-clock (msec)         #    7.433 CPUs utilized          
+            22,005      context-switches          #    0.001 M/sec                  
+                51      cpu-migrations            #    0.003 K/sec                  
+             1,520      page-faults               #    0.097 K/sec                  
+    57,741,848,355      cycles                    #    3.676 GHz                      (49.88%)
+    65,177,646,364      instructions              #    1.13  insn per cycle           (62.40%)
+    10,249,501,417      branches                  #  652.508 M/sec                    (62.26%)
+       109,584,631      branch-misses             #    1.07% of all branches          (62.44%)
+    26,573,625,695      L1-dcache-loads           # 1691.742 M/sec                    (62.65%)
+        17,603,467      L1-dcache-load-misses     #    0.07% of all L1-dcache hits    (62.86%)
+         5,949,849      LLC-loads                 #    0.379 M/sec                    (50.17%)
+            60,420      LLC-load-misses           #    1.02% of all LL-cache hits     (49.74%)
+
+       2.113382696 seconds time elapsed
+
+
+ Performance counter stats for './RayTracing_openmp 800 600':
+
+      15711.872781      task-clock (msec)         #    7.439 CPUs utilized          
+            22,202      context-switches          #    0.001 M/sec                  
+                23      cpu-migrations            #    0.001 K/sec                  
+             1,523      page-faults               #    0.097 K/sec                  
+    57,756,261,613      cycles                    #    3.676 GHz                      (49.98%)
+    65,180,002,386      instructions              #    1.13  insn per cycle           (62.46%)
+    10,251,091,447      branches                  #  652.442 M/sec                    (62.66%)
+       109,763,545      branch-misses             #    1.07% of all branches          (62.64%)
+    26,572,218,664      L1-dcache-loads           # 1691.219 M/sec                    (62.65%)
+        17,938,081      L1-dcache-load-misses     #    0.07% of all L1-dcache hits    (62.53%)
+         5,851,435      LLC-loads                 #    0.372 M/sec                    (49.90%)
+            45,442      LLC-load-misses           #    0.78% of all LL-cache hits     (49.64%)
+
+       2.112161738 seconds time elapsed
+

@@ -38,27 +38,59 @@ float randRadius() {
 
 void initScene(std::set<IShape *>&sceneShapes, std::set<Light *>&sceneLights)
 {
-	int i;
-	Sphere *sphere;
 
-	Plane *mirror = new Plane (Point(0.0f, 0.0, -15.0f), Vector3D (0.0f, 0.0f, 1.0f), 
-      Color(0.2f, 0.2f, 0.2f), 1.0f, 0.2f, 0.2f, false);
+	Plane *mirror1 = new Plane (Point(0.0f, 0.0, -15.0f), Vector3D (0.0f, 0.0f, 1.0f), 
+      Color(0.2f, 0.2f, 0.2f), 0.5f, 0.2f, 0.2f, false);
+	Plane *mirror2 = new Plane (Point(0.0f, 0.0, 25.0f), Vector3D (0.0f, 0.0f, -1.0f), 
+      Color(0.2f, 0.2f, 0.2f), 0.5f, 0.2f, 0.2f, false);
+
 	Plane *floor = new Plane(Point(0.0f, -2.5f, 0.0f), Vector3D(0.0f, 1.0f, 0.0f),
 			Color(1.0f, 1.0f, 1.0f), 0.5f, 0.3f, 0.3f);
 	
 	// Seed with current time
 	srand(time(NULL));
 
-	for (i = 0; i < 200; i++) {
-		sphere = new Sphere(randPoint(), randColor(), randRadius(), 0.7f, 1, 0.5f);
-		sceneShapes.insert(sphere);
-	}
+	Sphere *sphere0 = new Sphere(Point(-5.0f, 1.0f, 0.0f), Color(0.5, 0.1, 0.1),
+			0.5f, 0.5f, 1.0f, 0.6f);
+
+	Sphere *sphere1 = new Sphere(Point(3.0f, 0.0f, 0.0f), Color(1.0, 0.1, 0.1),
+			1.5f, 0.5f, 1.0f, 0.2f);
+	Sphere *sphere2 = new Sphere(Point(-3.0f, 0.0f, 0.0f), Color(0.1, 1.0, 0.1),
+			1.5f, 0.5f, 1.0f, 0.7f);
+	Sphere *sphere3 = new Sphere(Point(0.0f, 0.0f, -4.0f), Color(0.5, 0.5, 0.5),
+			1.5f, 0.5f, 1.0f, 0.7f);
+
+	Sphere *sphere4 = new Sphere(Point(10.0f, 5.0f, -4.0f), Color(1.0, 0.3, 0.8),
+				1.5f, 0.5f, 1.0f, 0.4f);
+
+	Sphere *sphere5 = new Sphere(Point(8.0f, 0.0f, 4.0f), Color(0.5, 0.5, 1.0),
+				1.5f, 0.3f, 1.0f, 0.7f);
+
+	Sphere *sphere6 = new Sphere(Point(5.0f, 10.0f, 0.0f), Color(0.3, 0.6, 0.1),
+				1.5f, 0.5f, 1.0f, 0.7f);
+
+	Sphere *sphere7 = new Sphere(Point(-3.0f, 4.0f, -2.0f), Color(0.1, 0.6, 0.7),
+				1.5f, 0.2f, 1.0f, 0.7f);
+
+	Sphere *sphere8 = new Sphere(Point(-4.0f, 7.0f, 3.0f), Color(0.5, 0.1, 0.7),
+	1.5f, 0.5f, 1.0f, 0.7f);
+
+	sceneShapes.insert(sphere0);
+	sceneShapes.insert(sphere1);
+	sceneShapes.insert(sphere2);
+	sceneShapes.insert(sphere3);
+	sceneShapes.insert(sphere4);
+	sceneShapes.insert(sphere5);
+	sceneShapes.insert(sphere6);
+	sceneShapes.insert(sphere7);
+	sceneShapes.insert(sphere8);
 
 	sceneShapes.insert(floor);
-  	sceneShapes.insert(mirror);
+  	sceneShapes.insert(mirror1);
+	sceneShapes.insert(mirror2);
 
-	Light *frontLight = new Light(Point(0.0f, 6.0f, 25.0f),
-				Color(1.0f, 1.0f, 1.0f), 3.0f);
+	Light *frontLight = new Light(Point(0.0f, 13.0f, 10.0f),
+				Color(1.0f, 1.0f, 1.0f), 1.0f);
 
 	sceneLights.insert(frontLight);
 }

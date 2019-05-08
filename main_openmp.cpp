@@ -54,7 +54,7 @@ int main (int argc, char** argv)
 	float aspectratio = float (width) / float (height);
 	Point origin (0.0f, 5.0f, 20.0f);
 
-	std::string filename = "output/openmp.ppm";
+	std::string filename = "../output/openmp.ppm";
 	Image *image = new Image[width * height];
 
 	printf ("Rendering scene:\n");
@@ -63,11 +63,11 @@ int main (int argc, char** argv)
 	gettimeofday (&t_start, NULL);
 
 #ifdef _OPENMP
-#pragma omp parallel for
+#pragma omp parallel for collapse(2) schedule(guided, 1024)
 #endif
 	for (int y = 0; y < height; y++)
 	{
-		printf ("\r%.2f%%", float(y)/height * 100);
+		//printf ("\r%.2f%%", float(y)/height * 100);
 
 		for (int x = 0; x < width; x++)
 		{
