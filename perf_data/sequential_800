@@ -1,0 +1,54 @@
+
+ Performance counter stats for 'build/RayTracing 800 600':
+
+      10019.048834      task-clock (msec)         #    1.000 CPUs utilized          
+                 9      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             1,456      page-faults               #    0.145 K/sec                  
+    37,259,901,373      cycles                    #    3.719 GHz                      (50.00%)
+    64,780,564,829      instructions              #    1.74  insn per cycle           (62.51%)
+    10,147,765,287      branches                  # 1012.847 M/sec                    (62.51%)
+        48,009,955      branch-misses             #    0.47% of all branches          (62.51%)
+    26,371,399,217      L1-dcache-loads           # 2632.126 M/sec                    (62.51%)
+         5,213,740      L1-dcache-load-misses     #    0.02% of all L1-dcache hits    (62.49%)
+         1,088,013      LLC-loads                 #    0.109 M/sec                    (49.98%)
+            87,956      LLC-load-misses           #    8.08% of all LL-cache hits     (49.98%)
+
+      10.019840197 seconds time elapsed
+
+
+ Performance counter stats for 'build/RayTracing 800 600':
+
+       9954.892750      task-clock (msec)         #    1.000 CPUs utilized          
+                 6      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             1,456      page-faults               #    0.146 K/sec                  
+    37,219,847,257      cycles                    #    3.739 GHz                      (50.01%)
+    64,699,429,872      instructions              #    1.74  insn per cycle           (62.51%)
+    10,152,467,385      branches                  # 1019.847 M/sec                    (62.51%)
+        47,929,404      branch-misses             #    0.47% of all branches          (62.51%)
+    26,386,854,686      L1-dcache-loads           # 2650.642 M/sec                    (62.51%)
+         5,085,985      L1-dcache-load-misses     #    0.02% of all L1-dcache hits    (62.48%)
+         1,038,798      LLC-loads                 #    0.104 M/sec                    (49.99%)
+            67,572      LLC-load-misses           #    6.50% of all LL-cache hits     (49.99%)
+
+       9.955051345 seconds time elapsed
+
+
+ Performance counter stats for 'build/RayTracing 800 600':
+
+       9851.339169      task-clock (msec)         #    1.000 CPUs utilized          
+                 5      context-switches          #    0.001 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             1,455      page-faults               #    0.148 K/sec                  
+    37,030,360,871      cycles                    #    3.759 GHz                      (49.98%)
+    64,650,230,859      instructions              #    1.75  insn per cycle           (62.48%)
+    10,139,594,070      branches                  # 1029.260 M/sec                    (62.48%)
+        47,539,958      branch-misses             #    0.47% of all branches          (62.48%)
+    26,391,677,814      L1-dcache-loads           # 2678.994 M/sec                    (62.52%)
+         4,010,847      L1-dcache-load-misses     #    0.02% of all L1-dcache hits    (62.53%)
+           681,175      LLC-loads                 #    0.069 M/sec                    (50.02%)
+            30,066      LLC-load-misses           #    4.41% of all LL-cache hits     (49.99%)
+
+       9.851506301 seconds time elapsed
+

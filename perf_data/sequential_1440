@@ -1,0 +1,54 @@
+
+ Performance counter stats for 'build/RayTracing 1440 960':
+
+      29965.059009      task-clock (msec)         #    1.000 CPUs utilized          
+                45      context-switches          #    0.002 K/sec                  
+                 2      cpu-migrations            #    0.000 K/sec                  
+             4,107      page-faults               #    0.137 K/sec                  
+   109,890,137,838      cycles                    #    3.667 GHz                      (49.98%)
+   187,553,083,279      instructions              #    1.71  insn per cycle           (62.48%)
+    29,419,698,736      branches                  #  981.800 M/sec                    (62.49%)
+       143,693,355      branch-misses             #    0.49% of all branches          (62.51%)
+    76,550,885,151      L1-dcache-loads           # 2554.672 M/sec                    (62.52%)
+        20,544,271      L1-dcache-load-misses     #    0.03% of all L1-dcache hits    (62.52%)
+         4,389,041      LLC-loads                 #    0.146 M/sec                    (50.00%)
+           948,993      LLC-load-misses           #   21.62% of all LL-cache hits     (49.99%)
+
+      29.971424198 seconds time elapsed
+
+
+ Performance counter stats for 'build/RayTracing 1440 960':
+
+      30702.084027      task-clock (msec)         #    1.000 CPUs utilized          
+                34      context-switches          #    0.001 K/sec                  
+                 3      cpu-migrations            #    0.000 K/sec                  
+             4,099      page-faults               #    0.134 K/sec                  
+   112,776,508,422      cycles                    #    3.673 GHz                      (49.99%)
+   187,539,996,492      instructions              #    1.66  insn per cycle           (62.49%)
+    29,457,460,711      branches                  #  959.461 M/sec                    (62.50%)
+       149,079,939      branch-misses             #    0.51% of all branches          (62.52%)
+    76,568,599,636      L1-dcache-loads           # 2493.922 M/sec                    (62.52%)
+        30,694,215      L1-dcache-load-misses     #    0.04% of all L1-dcache hits    (62.51%)
+         5,940,267      LLC-loads                 #    0.193 M/sec                    (49.99%)
+         1,197,110      LLC-load-misses           #   20.15% of all LL-cache hits     (49.97%)
+
+      30.706562599 seconds time elapsed
+
+
+ Performance counter stats for 'build/RayTracing 1440 960':
+
+      29987.287886      task-clock (msec)         #    1.000 CPUs utilized          
+                11      context-switches          #    0.000 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             4,099      page-faults               #    0.137 K/sec                  
+   110,089,374,831      cycles                    #    3.671 GHz                      (50.00%)
+   187,509,911,761      instructions              #    1.70  insn per cycle           (62.50%)
+    29,424,764,497      branches                  #  981.241 M/sec                    (62.50%)
+       143,923,197      branch-misses             #    0.49% of all branches          (62.50%)
+    76,563,612,975      L1-dcache-loads           # 2553.202 M/sec                    (62.50%)
+        21,999,260      L1-dcache-load-misses     #    0.03% of all L1-dcache hits    (62.50%)
+         4,404,425      LLC-loads                 #    0.147 M/sec                    (50.00%)
+           730,959      LLC-load-misses           #   16.60% of all LL-cache hits     (49.99%)
+
+      29.987301820 seconds time elapsed
+

@@ -1,0 +1,18 @@
+
+ Performance counter stats for 'build/RayTracing_cuda 800 600':
+
+        168.597350      task-clock (msec)         #    0.976 CPUs utilized          
+                55      context-switches          #    0.326 K/sec                  
+                 2      cpu-migrations            #    0.012 K/sec                  
+             3,474      page-faults               #    0.021 M/sec                  
+       548,926,639      cycles                    #    3.256 GHz                      (47.69%)
+       661,164,006      instructions              #    1.20  insn per cycle           (62.07%)
+       138,376,125      branches                  #  820.749 M/sec                    (63.93%)
+           699,079      branch-misses             #    0.51% of all branches          (64.64%)
+       211,524,422      L1-dcache-loads           # 1254.613 M/sec                    (64.79%)
+         5,036,602      L1-dcache-load-misses     #    2.38% of all L1-dcache hits    (64.22%)
+         1,031,589      LLC-loads                 #    6.119 M/sec                    (47.67%)
+           381,661      LLC-load-misses           #   37.00% of all LL-cache hits     (47.05%)
+
+       0.172673530 seconds time elapsed
+

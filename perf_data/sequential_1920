@@ -1,0 +1,54 @@
+
+ Performance counter stats for 'build/RayTracing 1920 1080':
+
+      43227.281893      task-clock (msec)         #    1.000 CPUs utilized          
+                15      context-switches          #    0.000 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             6,124      page-faults               #    0.142 K/sec                  
+   161,717,041,026      cycles                    #    3.741 GHz                      (49.99%)
+   282,031,590,096      instructions              #    1.74  insn per cycle           (62.50%)
+    44,304,379,518      branches                  # 1024.917 M/sec                    (62.50%)
+       206,499,539      branch-misses             #    0.47% of all branches          (62.50%)
+   115,021,168,703      L1-dcache-loads           # 2660.847 M/sec                    (62.50%)
+        17,292,975      L1-dcache-load-misses     #    0.02% of all L1-dcache hits    (62.51%)
+         3,344,751      LLC-loads                 #    0.077 M/sec                    (50.01%)
+           284,173      LLC-load-misses           #    8.50% of all LL-cache hits     (50.00%)
+
+      43.227381533 seconds time elapsed
+
+
+ Performance counter stats for 'build/RayTracing 1920 1080':
+
+      43243.226137      task-clock (msec)         #    1.000 CPUs utilized          
+                14      context-switches          #    0.000 K/sec                  
+                 0      cpu-migrations            #    0.000 K/sec                  
+             6,124      page-faults               #    0.142 K/sec                  
+   161,907,802,008      cycles                    #    3.744 GHz                      (49.99%)
+   282,038,633,088      instructions              #    1.74  insn per cycle           (62.49%)
+    44,298,560,997      branches                  # 1024.405 M/sec                    (62.50%)
+       206,216,874      branch-misses             #    0.47% of all branches          (62.51%)
+   114,998,597,734      L1-dcache-loads           # 2659.344 M/sec                    (62.51%)
+        18,037,584      L1-dcache-load-misses     #    0.02% of all L1-dcache hits    (62.51%)
+         3,323,947      LLC-loads                 #    0.077 M/sec                    (49.99%)
+           375,226      LLC-load-misses           #   11.29% of all LL-cache hits     (49.99%)
+
+      43.243201569 seconds time elapsed
+
+
+ Performance counter stats for 'build/RayTracing 1920 1080':
+
+      43689.336905      task-clock (msec)         #    1.000 CPUs utilized          
+                22      context-switches          #    0.001 K/sec                  
+                 2      cpu-migrations            #    0.000 K/sec                  
+             6,124      page-faults               #    0.140 K/sec                  
+   162,759,981,676      cycles                    #    3.725 GHz                      (50.00%)
+   281,968,912,711      instructions              #    1.73  insn per cycle           (62.51%)
+    44,277,948,917      branches                  # 1013.473 M/sec                    (62.51%)
+       208,829,068      branch-misses             #    0.47% of all branches          (62.51%)
+   115,036,355,163      L1-dcache-loads           # 2633.053 M/sec                    (62.51%)
+        20,569,515      L1-dcache-load-misses     #    0.02% of all L1-dcache hits    (62.50%)
+         4,114,206      LLC-loads                 #    0.094 M/sec                    (49.99%)
+           642,742      LLC-load-misses           #   15.62% of all LL-cache hits     (49.99%)
+
+      43.689941286 seconds time elapsed
+
